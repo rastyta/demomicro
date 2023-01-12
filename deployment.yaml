@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demomicro
+spec:
+  selector:
+    matchLabels:
+      app: demomicro
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: demomicro
+    spec:
+      containers:
+        - name: demomicro
+          image: demomicro:0.0.1-SNAPSHOT
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
