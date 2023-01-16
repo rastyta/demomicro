@@ -38,12 +38,12 @@ public class CustomerController {
     private static List<Customer> createList() {
         List<Customer> tempCustomers = new ArrayList<>();
         Customer cus1 = new Customer();
-        cus1.setFirstName("rasty2");
+        cus1.setFirstName("rasty3");
         cus1.setLastName("manager");
         cus1.setId("1");
 
         Customer cus2 = new Customer();
-        cus2.setFirstName("Selva2");
+        cus2.setFirstName("Selva3");
         cus2.setLastName("manager2");
         cus2.setId("2");
         tempCustomers.add(cus1);
