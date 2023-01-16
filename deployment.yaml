@@ -15,6 +15,6 @@ spec:
       containers:
         - name: demomicro
           image: docker.io/library/demomicro:0.0.1-SNAPSHOT
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
