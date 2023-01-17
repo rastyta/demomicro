@@ -12,6 +12,7 @@ spec:
       labels:
         app: demomicro
     spec:
+      terminationGracePeriodSeconds: 30
       containers:
         - name: demomicro
           image: rasty2/demomicro:0.0.1-SNAPSHOT

@@ -1,37 +1,33 @@
 package com.knowledgecafe.demomicro.model;
 
-import lombok.Generated;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.couchbase.core.mapping.Document;
+import org.springframework.data.couchbase.core.mapping.Field;
+import org.springframework.data.couchbase.core.mapping.id.GeneratedValue;
 
-import java.util.Objects;
+import javax.validation.constraints.NotNull;
 
-@Generated
-@Getter
-@Setter
-@NoArgsConstructor
+import static org.springframework.data.couchbase.core.mapping.id.GenerationStrategy.UNIQUE;
+
 
 @Document
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
 public class Customer {
+        @GeneratedValue(strategy = UNIQUE)
+        @JsonIgnore
         @Id
         private String id;
+        @NotNull
+        @Field
         private String firstName;
+        @NotNull
+        @Field
         private String lastName;
+        @Field
         private String email;
-
-        @Override
-        public boolean equals(Object o) {
-                if (this == o) return true;
-                if (o == null || getClass() != o.getClass()) return false;
-                Customer customer = (Customer) o;
-                return Objects.equals(id, customer.id) && Objects.equals(firstName, customer.firstName) && Objects.equals(lastName, customer.lastName) && Objects.equals(email, customer.email);
-        }
-
-        @Override
-        public int hashCode() {
-                return Objects.hash(id, firstName, lastName, email);
-        }
 }

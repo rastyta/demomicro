@@ -1,53 +1,38 @@
 package com.knowledgecafe.demomicro.controllers;
 
 import com.knowledgecafe.demomicro.model.Customer;
+import com.knowledgecafe.demomicro.services.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class CustomerController {
-    private List<Customer> customers = createList();
+
+    @Autowired
+    CustomerService customerService;
 
     @RequestMapping(value = "/customers", method = RequestMethod.GET, produces = "application/json")
-    public List<Customer> firstPage() {
-        return customers;
+    public List<Customer> getCustomers() {
+        return customerService.listCustomers();
     }
 
-    @DeleteMapping(path = { "/{id}" })
-    public Customer delete(@PathVariable("id") int id) {
-        Customer deletedCustomer = null;
-        for (Customer cus : customers) {
-            if (cus.getId().equals(id)) {
-                customers.remove(cus);
-                deletedCustomer = cus;
-                break;
-            }
-        }
-        return deletedCustomer;
+    @PostMapping("/customer")
+    public Customer addCustomer(@RequestBody Customer customer) {
+        return customerService.saveCustomer(customer);
     }
 
-    @PostMapping
-    public Customer create(@RequestBody Customer cus) {
-        customers.add(cus);
-        System.out.println(customers);
-        return cus;
+    @GetMapping("/customers/{id}")
+    public Optional<Customer> getCustomer(@PathVariable String id) {
+        return customerService.getCustomerById(id);
     }
 
-    private static List<Customer> createList() {
-        List<Customer> tempCustomers = new ArrayList<>();
-        Customer cus1 = new Customer();
-        cus1.setFirstName("rasty4");
-        cus1.setLastName("manager");
-        cus1.setId("1");
-
-        Customer cus2 = new Customer();
-        cus2.setFirstName("Selva4");
-        cus2.setLastName("manager2");
-        cus2.setId("2");
-        tempCustomers.add(cus1);
-        tempCustomers.add(cus2);
-        return tempCustomers;
+    @DeleteMapping("/customers/{id}")
+    public void deleteCustomer(@PathVariable String id) {
+        customerService.deleteCustomerById(id);
     }
+
 }
