@@ -1,7 +1,10 @@
 package com.knowledgecafe.demomicro.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.couchbase.core.mapping.Document;
 import org.springframework.data.couchbase.core.mapping.Field;
@@ -11,23 +14,32 @@ import javax.validation.constraints.NotNull;
 
 import static org.springframework.data.couchbase.core.mapping.id.GenerationStrategy.UNIQUE;
 
-
-@Document
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class Customer {
-        @GeneratedValue(strategy = UNIQUE)
-        @JsonIgnore
-        @Id
-        private String id;
-        @NotNull
-        @Field
-        private String firstName;
-        @NotNull
-        @Field
-        private String lastName;
-        @Field
-        private String email;
+@Document
+public class Airline {
+    @GeneratedValue(strategy = UNIQUE)
+    @JsonIgnore
+    @Id
+    private String id;
+    @NotNull
+    @Field
+    private String name;
+    @NotNull
+    @Field
+    private String type;
+    @NotNull
+    @Field
+    private String callsign;
+    @NotNull
+    @Field
+    private String country;
+    @NotNull
+    @Field
+    private String iata;
+    @NotNull
+    @Field
+    private String icao;
 }

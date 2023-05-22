@@ -10,7 +10,7 @@ public class CouchbaseConf extends AbstractCouchbaseConfiguration {
 
     @Override
     public String getConnectionString() {
-        return "couchbase://44.203.207.16";
+        return "couchbase://44.212.221.128";
     }
 
     @Override
@@ -25,6 +25,7 @@ public class CouchbaseConf extends AbstractCouchbaseConfiguration {
 
     @Override
     public String getBucketName() {
-        return "Customer";
+        return "travel-sample";
     }
+
 }
