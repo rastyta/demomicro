@@ -10,17 +10,17 @@ public class CouchbaseConf extends AbstractCouchbaseConfiguration {
 
     @Override
     public String getConnectionString() {
-        return "couchbase://44.212.221.128";
+        return "couchbase://10.0.1.56";
     }
 
     @Override
     public String getUserName() {
-        return "admin";
+        return "Administrator";
     }
 
     @Override
     public String getPassword() {
-        return "Rastyta007!";
+        return "password";
     }
 
     @Override
