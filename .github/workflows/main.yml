@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 env:
-  ECR_REPOSITORY: kc-main-micro
+  ECR_REPOSITORY: demomicro
 
 jobs:
 
