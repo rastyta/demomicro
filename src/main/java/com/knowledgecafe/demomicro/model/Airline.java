@@ -42,5 +42,4 @@ public class Airline {
     @NotNull
     @Field
     private String icao;
-
 }
