@@ -10,7 +10,7 @@ public class CouchbaseConf extends AbstractCouchbaseConfiguration {
 
     @Override
     public String getConnectionString() {
-        return "couchbase://34.245.8.140";
+        return "couchbase://10.0.1.234";
     }
 
     @Override
