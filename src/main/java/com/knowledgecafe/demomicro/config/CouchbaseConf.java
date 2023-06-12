@@ -26,6 +26,7 @@ public class CouchbaseConf extends AbstractCouchbaseConfiguration {
 
     @Override
     public String getPassword() {
+        System.out.println("*****************************" + password);
         return password;
     }
 
