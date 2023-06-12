@@ -1,0 +1,15 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: demomicro
+  cloud:
+    kubernetes:
+      reload:
+        enabled: true
+      config:
+        enabled: true
+db:
+  couchbase:
+    username: ${CB_USERNAME}
+    password: ${CB_PASSWORD}
